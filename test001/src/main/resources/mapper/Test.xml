@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kmw.test.common.dao.TestDao">
+<select id="selectList" resultType="HashMap">
+	select * from tb_board order by board_num
+</select>
+<select id="selectBlob" parameterType="HashMap" resultType="HashMap">
+select * from tb_photo where board_num =#{boardNum} and photo_count=#{photoCount}
+</select>
+<select id="selectOne" parameterType="HashMap" resultType="HashMap">
+select * from tb_board where board_num=#{boardNum}
+</select>
+<insert id="insertTest" parameterType="HashMap">
+insert into tb_board(board_num,user_id,contents,photo_total_count) values(SEQ_BOARD.NEXTVAL,#{userId},#{contents},#{photoTotalCount})
+</insert>
+<insert id="insertImg" parameterType="HashMap">
+<selectKey keyProperty="boardNum" resultType="String" order="BEFORE">
+    select max(board_num) from tb_board where user_id =#{userId}
+</selectKey>
+insert into tb_photo(photo_num,board_num,photo_count,photo_data,original_name) values (SEQ_PHOTO.NEXTVAL,#{boardNum},#{photoCount},#{imgData},#{originName})
+</insert>
+</mapper>
