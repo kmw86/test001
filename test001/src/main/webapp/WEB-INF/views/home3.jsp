@@ -38,7 +38,7 @@ $(document).ready(function(){
 });
 </script>
 <body>
-<div id="table" codepen="table1">
+<div id="table">
 	<div class="header">
 		<span class="opts"></span>
 		<span class="no">No</span>
@@ -46,6 +46,7 @@ $(document).ready(function(){
 		<span class="writer">Writer</span>
 		<span class="title">Title</span>
 	</div>
+</div>
 <div class="container">
 </div>
 </body>
@@ -73,13 +74,13 @@ $.ajax({
         console.log(data);
         $.each(data,function(idx,item){
         	var template='<div class="post"><span class="opts"></span><span class="no">';
-        	template+=item.gb_user;
+        	template+=item.BOARD_NUM;
         	template+='</span><span class="date">';
-        	template+=item.gb_user;
+        	template+=item.CONTENTS;
         	template+='</span><span class="writer">';
-        	template+=item.gb_user;
+        	template+=item.CONTENTS;
         	template+='</span><span class="title"><a href="http://m.naver.com">';
-        	template+=item.gb_user;
+        	template+=item.USER_ID;
         	template+='</a></span></div>';
         	arr.push(template);
 		});

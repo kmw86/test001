@@ -11,7 +11,7 @@
             <v-icon>home</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Home</v-list-tile-title>
+            <v-list-tile-title>소식</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile >
@@ -30,7 +30,7 @@
     </v-toolbar>
     <v-content>
       <v-container fluid fill-height>
-        <test01></test01>
+        <router-view></router-view>
       </v-container>
     </v-content>
     <v-footer color="indigo" app>
@@ -40,7 +40,6 @@
 </template>
 
 <script>
-import Test01 from '@/components/Test01.vue'
 
   export default {
     data (){
@@ -50,9 +49,6 @@ import Test01 from '@/components/Test01.vue'
     },
     props: {
       source: String
-    },
-    components:{
-      'Test01' :Test01
-  }
+    }
   }
 </script>

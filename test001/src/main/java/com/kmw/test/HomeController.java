@@ -76,6 +76,13 @@ public class HomeController {
 	
 		return "home3";
 	}
+	
+	@RequestMapping(value = "/home6", method = RequestMethod.GET)
+	public String home6(Locale locale, Model model) throws IOException {
+		
+		return "home6";
+	}
+	
 	@RequestMapping(value = "/reg", method = RequestMethod.GET)
 	public String reg(Locale locale, Model model) {
 		return "home2";
@@ -96,10 +103,23 @@ public class HomeController {
 		testService.method01(param, multipartFiles);
 		return "redirect:/";
 	}
-	@CrossOrigin(origins = "http://localhost:8081")
+	@CrossOrigin(origins = {"http://localhost:8081","http://localhost:8085"})
 	@ResponseBody
 	@RequestMapping(value = "/method01", method = RequestMethod.GET)
 	public List<HashMap<String,Object>> method01(Locale locale, Model model) {
 		return testDao.selectList();
 	}
+	
+	@CrossOrigin(origins = {"http://localhost:8081","http://localhost:8085"})
+	@ResponseBody
+	@RequestMapping(value = "/method06", method = RequestMethod.GET)
+	public Map<String,Object> method06(Locale locale, Model model) {
+		Map<String,Object> map =new HashMap<String,Object>();
+		map.put("records", "1000000");
+		map.put("page", 1);
+		map.put("total", 50000);
+		map.put("rows", testDao.selectList());
+		return map;
+	}
+	
 }

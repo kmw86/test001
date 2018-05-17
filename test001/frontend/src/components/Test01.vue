@@ -6,6 +6,18 @@
 			  <v-card-text>{{item.CONTENTS}}</v-card-text>
 		</v-card>
 	</v-flex>
+	<router-link to="/2/02">
+    <v-btn
+		color="blue"
+		dark
+		bottom
+		right
+		fab
+		fixed
+    >
+    <v-icon>edit</v-icon>
+    </v-btn> 
+	</router-link>
 </div>
 </template>
 <script>
@@ -23,6 +35,10 @@ export default {
 					this.items= response.data;
 				console.log("r1",this.items);
 				}.bind(this));
-				}
+				},
+	methods	:{
+		test:function(){
+		}
+	}		
 }
 </script>
