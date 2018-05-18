@@ -4,10 +4,16 @@ import HelloWorld from '@/components/HelloWorld'
 import HelloWorld2 from '@/components/HelloWorld2'
 import Test01 from '@/components/Test01'
 import Test02 from '@/components/Test02'
+import LoginForm from '@/components/LoginForm'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/login',
+      name: 'LoginForm',
+      component: LoginForm
+    },
     {
       path: '/',
       name: 'HelloWorld',
