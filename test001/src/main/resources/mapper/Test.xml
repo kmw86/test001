@@ -6,6 +6,9 @@
 <select id="selectList" resultType="HashMap">
 	select * from tb_board order by board_num
 </select>
+<select id="selectPhotoList" resultType="HashMap">
+	select board_num,photo_count from tb_photo where board_num=#{boardNum}
+</select>
 <select id="selectBlob" parameterType="HashMap" resultType="HashMap">
 select * from tb_photo where board_num =#{boardNum} and photo_count=#{photoCount}
 </select>

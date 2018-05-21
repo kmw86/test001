@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import HelloWorld2 from '@/components/HelloWorld2'
 import Test01 from '@/components/Test01'
 import Test02 from '@/components/Test02'
+import Test03 from '@/components/Test03'
 import LoginForm from '@/components/LoginForm'
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ export default new Router({
             path: '02',
             name: 'Test02',
             component: Test02
+          },
+          {
+            path: '03',
+            name: 'Test03',
+            component: Test03
           }
       ] 
     },

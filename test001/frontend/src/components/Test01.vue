@@ -1,6 +1,6 @@
 <template>
 <div>
-	<v-flex v-for="item in items" :key="item.BOARD_NUM">
+	<v-flex v-for="item in items" :key="item.BOARD_NUM" v-on:click="test01(item.BOARD_NUM)">
 		<v-card> 
 			<v-card-title primary-title>{{item.BOARD_NUM}}</v-card-title>
 			  <v-card-text>{{item.CONTENTS}}</v-card-text>
@@ -21,6 +21,7 @@
 </div>
 </template>
 <script>
+import router from '@/router'
 
 export default {
   name: 'Test01',
@@ -37,7 +38,9 @@ export default {
 				}.bind(this));
 				},
 	methods	:{
-		test:function(){
+		test01:function(value){
+			
+			router.push({ name: 'Test03', params: { boardNum: value }, props: { boardNum: value }});
 		}
 	}		
 }

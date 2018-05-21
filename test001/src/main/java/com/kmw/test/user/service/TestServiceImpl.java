@@ -49,7 +49,7 @@ public class TestServiceImpl {
 			}
 	}
 	
-	public Map<String,String> method02(HashMap<String, String> param){
+	public Map<String,Object> method02(HashMap<String, String> param){
 		return testDao.selectOne(param);
 	};
 }
